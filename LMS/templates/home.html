@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center">
+  <h2>Welcome to LMS2</h2>
+  <p class="lead">Manage Teachers and Students easily</p>
+  <a href="{{ url_for('teachers') }}" class="btn btn-primary">Go to Teachers</a>
+  <a href="{{ url_for('students') }}" class="btn btn-success">Go to Students</a>
+  <a href="{{ url_for('run_query') }}" class="btn btn-info">Run Query</a>
+<a href="{{ url_for('classes') }}" class="btn btn-info">View Classes</a>
+
+</div>
+{% endblock %}

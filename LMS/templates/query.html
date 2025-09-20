@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Run SQL Query</h2>
+
+<form method="POST">
+  <textarea name="query" class="form-control" rows="4"
+    placeholder="Enter your SQL query here..."></textarea>
+  <button type="submit" class="btn btn-success mt-2">Run</button>
+</form>
+
+{% if error %}
+  <div class="alert alert-danger mt-3">{{ error }}</div>
+{% endif %}
+
+{% if result %}
+  <h4 class="mt-3">Results:</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        {% for col in range(result[0]|length) %}
+          <th>Column {{ col+1 }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in result %}
+      <tr>
+        {% for col in row %}
+        <td>{{ col }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Classes</h2>
+
+<a href="{{ url_for('add_student') }}" class="btn btn-primary mb-3">Add Class</a>
+
+<table class="table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Class ID</th>
+      <th>Class Name</th>
+      <th>Section</th>
+      <th>Teacher Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+    <tr>
+      <td>{{ row['class_id'] }}</td>
+      <td>{{ row['class_name'] }}</td>
+      <td>{{ row['section'] }}</td>
+      <td>{{ row['teacher_name'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
